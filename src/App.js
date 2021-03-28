@@ -1,6 +1,6 @@
 import Grid from "@material-ui/core/Grid";
 import Budget from './Components/Budget/Budget'
-import Layout from './Container/Layout/Layout'
+import Layout from './hoc/Layout/Layout'
 import Visualization from './Components/Visualization/Visualization';
 
 const App = () => (
