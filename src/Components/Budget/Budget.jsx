@@ -1,7 +1,6 @@
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
-import BudgetHeader from './BudgetHeader';
+import BudgetItemHeader from './BudgetItemHeader';
 import BudgetItemContainer from './BudgetItemContainer';
 import BudgetItemContent from './BudgetItemContent';
 import BudgetItem from './BudgetItem';
@@ -10,7 +9,7 @@ const Budget = () => {
   return (
     <Grid item xs={12} sm={8} md={8}>
       <BudgetItemContainer>
-        <BudgetHeader groupTitle="Housing" />
+        <BudgetItemHeader groupTitle="Housing" />
         <BudgetItemContent>
           <BudgetItem name="Mortgage / Rent" />
           <Divider />
@@ -23,7 +22,7 @@ const Budget = () => {
       </BudgetItemContainer>
 
       <BudgetItemContainer>
-        <BudgetHeader groupTitle="Food" />
+        <BudgetItemHeader groupTitle="Food" />
         <BudgetItemContent>
           <BudgetItem name="Groceries" />
           <Divider />
@@ -36,7 +35,7 @@ const Budget = () => {
       </BudgetItemContainer>
 
       <BudgetItemContainer>
-        <BudgetHeader groupTitle="Personal" />
+        <BudgetItemHeader groupTitle="Personal" />
         <BudgetItemContent>
           <BudgetItem name="Phone Bill" />
           <Divider />

@@ -1,4 +1,4 @@
-import BudgetItemContent from './BudgetItemContent';
+import BudgetItemContent from '../BudgetItemContent';
 import { render } from '@testing-library/react';
 
 describe('<BudgetItemContent />', () => {

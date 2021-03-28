@@ -13,26 +13,26 @@ const useStyles = makeStyles((theme) => ({
     }
   }
 }));
-const BudgetHeader = ({ groupTitle }) => {
+const BudgetItemHeader = ({ groupTitle }) => {
   const classes = useStyles();
   return (
     <Grid item xs={12}
-      // style={{ border: '1px solid red' }}
+    // style={{ border: '1px solid red' }}
     >
       <Grid container spacing={1} alignItems="center"
-        // style={{ border: '1px solid blue' }}
+      // style={{ border: '1px solid blue' }}
       >
         <Grid item xs={4}>
           <div className={classes.groupLabel}>
             <Avatar>{groupTitle[0].toUpperCase()}</Avatar>
-            <Typography>{groupTitle}</Typography>
+            <Typography variant="h6" component='h1'>{groupTitle}</Typography>
           </div>
         </Grid>
-        <Grid item xs={4}><Typography>Planned</Typography></Grid>
-        <Grid item xs={4}><Typography>Actual</Typography></Grid>
+        <Grid item xs={4}><Typography variant="h6" component='h1'>Planned</Typography></Grid>
+        <Grid item xs={4}><Typography variant="h6" component='h1'>Actual</Typography></Grid>
       </Grid>
     </Grid>
   )
 }
 
-export default BudgetHeader;
+export default BudgetItemHeader;

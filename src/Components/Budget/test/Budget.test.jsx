@@ -1,4 +1,4 @@
-import Budget from './Budget';
+import Budget from '../Budget';
 import { render } from '@testing-library/react';
 
 describe('<Budget/>', () => {
