@@ -16,8 +16,12 @@ const useStyles = makeStyles((theme) => ({
 const BudgetHeader = ({ groupTitle }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={12} style={{ border: '1px solid red' }}>
-      <Grid container spacing={1} alignItems="center" style={{ border: '1px solid blue' }}>
+    <Grid item xs={12}
+      // style={{ border: '1px solid red' }}
+    >
+      <Grid container spacing={1} alignItems="center"
+        // style={{ border: '1px solid blue' }}
+      >
         <Grid item xs={4}>
           <div className={classes.groupLabel}>
             <Avatar>{groupTitle[0].toUpperCase()}</Avatar>

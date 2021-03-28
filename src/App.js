@@ -20,7 +20,7 @@ function App() {
         <main>
           <Grid container spacing={2}>
             <Budget />
-            <Visualization />
+            {/* <Visualization /> */}
           </Grid>
         </main>
         <footer>this is the footer</footer>
