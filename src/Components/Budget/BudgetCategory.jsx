@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1)
   }
 }))
-const BudgetItemContainer = ({ children }) => {
+const BudgetCategory = ({ children }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root} elevation={0} variant="outlined">
@@ -24,4 +24,4 @@ const BudgetItemContainer = ({ children }) => {
   )
 }
 
-export default BudgetItemContainer;
+export default BudgetCategory;

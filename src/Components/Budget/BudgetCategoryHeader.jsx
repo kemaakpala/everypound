@@ -3,17 +3,16 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
-  groupLabel: {
+  categoryLabel: {
     display: 'flex',
     flex: 1,
     alignItems: 'center',
-    '& p': {
-      color: 'red',
+    '& h1': {
       paddingLeft: theme.spacing(1)
     }
   }
 }));
-const BudgetItemHeader = ({ groupTitle }) => {
+const BudgetCategoryHeader = ({ title }) => {
   const classes = useStyles();
   return (
     <Grid item xs={12}
@@ -23,16 +22,17 @@ const BudgetItemHeader = ({ groupTitle }) => {
       // style={{ border: '1px solid blue' }}
       >
         <Grid item xs={4}>
-          <div className={classes.groupLabel}>
-            <Avatar>{groupTitle[0].toUpperCase()}</Avatar>
-            <Typography variant="h6" component='h1'>{groupTitle}</Typography>
+          <div className={classes.categoryLabel}>
+            <Avatar>{title[0].toUpperCase()}</Avatar>
+            <Typography variant="h6" component='h1'>{title}</Typography>
           </div>
         </Grid>
-        <Grid item xs={4}><Typography variant="h6" component='h1'>Planned</Typography></Grid>
-        <Grid item xs={4}><Typography variant="h6" component='h1'>Actual</Typography></Grid>
+        <Grid item xs={3}><Typography variant="h6" component='h1' align="right">Planned</Typography></Grid>
+        <Grid item xs={3}><Typography variant="h6" component='h1' align="right">Actual</Typography></Grid>
+        <Grid item xs={2}><Typography variant="h6" component='h1' align="right"></Typography></Grid>
       </Grid>
     </Grid>
   )
 }
 
-export default BudgetItemHeader;
+export default BudgetCategoryHeader;

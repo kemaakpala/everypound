@@ -1,6 +1,6 @@
 import Grid from '@material-ui/core/Grid';
 
-const BudgetItemContainer = ({children}) => {
+const BudgetCategoryContent = ({children}) => {
   return (
     <Grid
       item xs={12} 
@@ -11,4 +11,4 @@ const BudgetItemContainer = ({children}) => {
   )
 }
 
-export default BudgetItemContainer;
+export default BudgetCategoryContent;

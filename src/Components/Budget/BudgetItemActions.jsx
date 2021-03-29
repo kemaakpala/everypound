@@ -5,7 +5,7 @@ import Divider from '@material-ui/core/Divider';
 const BudgetItemActions = () => (
   <Grid item xs={12}>
     <Divider />
-    <Button>Add Transaction</Button>
+    <Button>Add Item</Button>
   </Grid>
 )
 
