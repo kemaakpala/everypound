@@ -11,39 +11,39 @@ const Budget = () => {
       <BudgetCategory>
         <BudgetCategoryHeader title="Housing" />
         <BudgetCategoryContent>
-          <BudgetItem name="Mortgage / Rent" />
-          <Divider />
-          <BudgetItem name="Water Bi annual Bill" />
-          <Divider />
-          <BudgetItem name="Natural Gas" />
-          <Divider />
-          <BudgetItem name="Electricity" />
+          <BudgetItem name="Mortgage / Rent" actual={200}/>
+          {/* <Divider /> */}
+          <BudgetItem name="Water Bi annual Bill" actual={250}/>
+          {/* <Divider /> */}
+          <BudgetItem name="Natural Gas" actual={200}/>
+          {/* <Divider /> */}
+          <BudgetItem name="Electricity" actual={82}/>
         </BudgetCategoryContent>
       </BudgetCategory>
 
       <BudgetCategory>
         <BudgetCategoryHeader title="Food" />
         <BudgetCategoryContent>
-          <BudgetItem name="Groceries" />
+          <BudgetItem name="Groceries" actual={250}/>
           <Divider />
-          <BudgetItem name="Restaurant" />
+          <BudgetItem name="Restaurant" actual={100}/>
           <Divider />
-          <BudgetItem name="Lunch" />
+          <BudgetItem name="Lunch" actual={200}/>
           <Divider />
-          <BudgetItem name="Take out" />
+          <BudgetItem name="Take out" actual={100.6}/>
         </BudgetCategoryContent>
       </BudgetCategory>
 
       <BudgetCategory>
         <BudgetCategoryHeader title="Personal" />
         <BudgetCategoryContent>
-          <BudgetItem name="Phone Bill" />
+          <BudgetItem name="Phone Bill" actual={18}/>
           <Divider />
-          <BudgetItem name="Wifeys Phone Bill" />
+          <BudgetItem name="Wifeys Phone Bill" actual={47.7}/>
           <Divider />
-          <BudgetItem name="Allowance" />
+          <BudgetItem name="Allowance" actual={35}/>
           <Divider />
-          <BudgetItem name="Wifeys Allowance" />
+          <BudgetItem name="Wifeys Allowance" actual={70}/>
         </BudgetCategoryContent>
       </BudgetCategory>
     </Grid>
