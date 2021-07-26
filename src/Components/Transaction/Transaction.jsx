@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Button, Divider } from '@material-ui/core';
+import { Button, Divider, Typography } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,7 +19,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Transaction = ({ name }) => {
+  const [amount, setAmount] = useState(parseFloat('0').toFixed(2));
+  // const [actualAmt, setActualAmt] = useState(planned);
 
+  const handleChange = (e) => { setAmount(e.target.value) }
+  const handleBlur = (e) => {
+    const val = parseFloatAmount(e.target.value)
+    const isNan = window.isNaN(val);
+    setAmount(parseFloatAmount('0'));
+    if (!isNan) {
+      setAmount(val);
+    }
+  }
   const classes = useStyles();
   return (
     <>
@@ -32,6 +43,9 @@ const Transaction = ({ name }) => {
             InputProps={{
               startAdornment: <InputAdornment position="start">£</InputAdornment>,
             }}
+            value={amount}
+            onChange={handleChange}
+            onBlur={handleBlur}
             style={{ width: '100%' }}
           />
         </Grid>
@@ -39,7 +53,6 @@ const Transaction = ({ name }) => {
           <TextField
             label="Description"
             InputLabelProps={{ shrink: true }}
-            // className={clsx(classes.margin, classes.textField)}
             value={name}
           />
         </Grid>
