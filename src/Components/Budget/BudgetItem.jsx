@@ -4,14 +4,16 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
-import AddIcon from '@material-ui/icons/Add';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import DeleteIcon from '@material-ui/icons/Delete';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { parseFloatAmount } from '../../utils/numberUtils';
-import { Button } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 import Transaction from '../Transaction/Transaction';
-
+import clsx from 'clsx';
+import Button from '@material-ui/core/Button';
+import Collapse from '@material-ui/core/Collapse';
 
 const useStyles = makeStyles((theme) => ({
   budgetItemContainer: {
@@ -22,6 +24,17 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
     padding: 0
   },
+  expandTransactionBtn: {
+    '&.expanded': {
+      transform: 'rotate(180deg)',
+    },
+    marginLeft: theme.spacing(1),
+    transform: 'rotate(0deg)',
+    transition: '150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
+  },
+  collapseTransactionBtn: {
+    marginLeft: theme.spacing(1),
+  },
   planned: {
     '& input': {
       textAlign: 'right'
@@ -31,13 +44,17 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(1),
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
-    paddingBottom: theme.spacing(1)
+    paddingBottom: theme.spacing(1),
+    border: '1px solid' + theme.palette.primary.dark
   }
 }));
+
 const BudgetItem = ({ name, actual }) => {
-  const classes = useStyles();
   const [planned, setPlanned] = useState(parseFloat('0').toFixed(2));
   const [progressVal, setProgressVal] = useState(0);
+  const [toggleExpanded, setToggleExpanded] = useState(true);
+
+  const classes = useStyles();
   // const [actualAmt, setActualAmt] = useState(planned);
 
   const handleChange = (e) => { setPlanned(e.target.value) }
@@ -51,7 +68,10 @@ const BudgetItem = ({ name, actual }) => {
     }
   }
 
+  const handleToggleTransaction = (e) => { setToggleExpanded(!toggleExpanded) }
+
   const pctVal = (numerator, denominator) => (numerator - denominator) * 100 / (numerator - denominator);
+  const toggleExpandedClass = clsx(classes.expandTransactionBtn, toggleExpanded && 'expanded')
 
   return (
     <>
@@ -74,11 +94,16 @@ const BudgetItem = ({ name, actual }) => {
           <Typography>£{parseFloatAmount(actual)}</Typography>
         </Grid>
         <Grid item xs={2} align="right">
-          <IconButton aria-label="delete" className={classes.deleteBtn} title="Add Transaction Item">
-            <AddIcon fontSize="small" />
-          </IconButton>
-          <IconButton aria-label="delete" className={classes.deleteBtn} title="Delete Budget Item">
+          <IconButton aria-label="delete" className={classes.deleteBtn} title="Delete Item Btn">
             <DeleteIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            aria-label="expand transaction Button"
+            className={toggleExpandedClass}
+            title="Expand Transaction Button"
+            onClick={handleToggleTransaction}
+          >
+            <ExpandLessIcon fontSize="small" />
           </IconButton>
         </Grid>
         <Grid item xs={12}>
@@ -91,9 +116,13 @@ const BudgetItem = ({ name, actual }) => {
           </div>
         </Grid>
         <Grid item xs={12}>
-          <Transaction name={name} collapsed />
-          <Transaction name={name} collapsed />
-          <Transaction name={name} collapsed />
+          <Collapse in={!toggleExpanded}>
+            <Box className={classes.budgetTransactionContainer}>
+              <h3>Transactions</h3>
+              <div><Button>Add New</Button></div>
+              <Transaction name={name} collapsed />
+            </Box>
+          </Collapse>
         </Grid>
       </Grid>
     </>

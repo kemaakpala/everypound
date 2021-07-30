@@ -32,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
   column: {
     flexBasis: '33.33%',
   },
+  datePicker: {
+    marginTop: 0,
+  },
+  fullWidth: {
+    width: '100%',
+  }
 }));
 
 const Transaction = ({ name }) => {
@@ -69,20 +75,23 @@ const Transaction = ({ name }) => {
           <div className={classes.column}>
             <Typography className={classes.heading}>{summaryTitle}</Typography>
           </div>
-
           <div className={classes.column}>
             <Typography className={classes.secondaryHeading}> £{amount}</Typography>
           </div>
-
           <div className={classes.column}>
             <Typography className={classes.secondaryHeading}> {format(selectedDate, "yyyy/MM/dd")}</Typography>
           </div>
         </AccordionSummary>
         <AccordionDetails className={classes.details}>
-          <Grid className={classes.transactionContainer} container spacing={1}>
+          <Grid
+            className={classes.transactionContainer}
+            container
+            spacing={1}
+          >
             <Grid item xs={6}>
               <TextField
                 label="Amount"
+                className={classes.fullWidth}
                 id="filled-start-adornment"
                 // className={clsx(classes.margin, classes.textField)}
                 InputProps={{
@@ -91,12 +100,12 @@ const Transaction = ({ name }) => {
                 value={amount}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                style={{ width: '100%' }}
               />
             </Grid>
             <Grid item xs={3}>
               <TextField
                 label="Description"
+                className={classes.fullWidth}
                 InputLabelProps={{ shrink: true }}
                 value={summaryTitle}
                 onChange={handleChangeTitle}
@@ -107,29 +116,25 @@ const Transaction = ({ name }) => {
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <Grid container justifyContent="space-around">
                   <KeyboardDatePicker
+                    className={classes.datePicker}
                     disableToolbar
                     variant="inline"
                     format="yyyy/MM/dd"
                     margin="normal"
-                    id="date-picker-inline"
-                    label="Date picker inline"
+                    label="Transaction Date"
                     value={selectedDate}
                     onChange={handleDateChange}
-                    KeyboardButtonProps={{
-                      'aria-label': 'change date',
-                    }}
+                    KeyboardButtonProps={{ 'aria-label': 'change date', }}
                   />
                 </Grid>
               </MuiPickersUtilsProvider>
             </Grid>
             <Grid item xs={12}>
               <TextField
-                id="standard-multiline-static"
+                className={classes.fullWidth}
                 label="Note"
                 multiline
                 rows={4}
-                defaultValue="Default Value"
-                style={{ width: '100%' }}
               />
             </Grid>
           </Grid>

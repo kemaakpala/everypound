@@ -7,7 +7,7 @@ import BudgetItem from './BudgetItem';
 
 const Budget = () => {
   return (
-    <Grid item xs={12} sm={8} md={8}>
+    <Grid item xs={12} sm={9} md={9}>
       <BudgetCategory>
         <BudgetCategoryHeader title="Housing" />
         <BudgetCategoryContent>
