@@ -11,39 +11,39 @@ const Budget = () => {
       <BudgetCategory>
         <BudgetCategoryHeader title="Housing" />
         <BudgetCategoryContent>
-          <BudgetItem name="Mortgage / Rent" actual={200}/>
+          <BudgetItem name="Mortgage / Rent" />
           {/* <Divider /> */}
-          <BudgetItem name="Water Bi annual Bill" actual={250}/>
+          <BudgetItem name="Water Bi annual Bill" />
           {/* <Divider /> */}
-          <BudgetItem name="Natural Gas" actual={200}/>
+          <BudgetItem name="Natural Gas" />
           {/* <Divider /> */}
-          <BudgetItem name="Electricity" actual={82}/>
+          <BudgetItem name="Electricity" />
         </BudgetCategoryContent>
       </BudgetCategory>
 
       <BudgetCategory>
         <BudgetCategoryHeader title="Food" />
         <BudgetCategoryContent>
-          <BudgetItem name="Groceries" actual={250}/>
+          <BudgetItem name="Groceries" />
           <Divider />
-          <BudgetItem name="Restaurant" actual={100}/>
+          <BudgetItem name="Restaurant" />
           <Divider />
-          <BudgetItem name="Lunch" actual={200}/>
+          <BudgetItem name="Lunch" />
           <Divider />
-          <BudgetItem name="Take out" actual={100.6}/>
+          <BudgetItem name="Take out" />
         </BudgetCategoryContent>
       </BudgetCategory>
 
       <BudgetCategory>
         <BudgetCategoryHeader title="Personal" />
         <BudgetCategoryContent>
-          <BudgetItem name="Phone Bill" actual={18}/>
+          <BudgetItem name="Phone Bill" />
           <Divider />
-          <BudgetItem name="Wifeys Phone Bill" actual={47.7}/>
+          <BudgetItem name="Wifeys Phone Bill" />
           <Divider />
-          <BudgetItem name="Allowance" actual={35}/>
+          <BudgetItem name="Allowance" />
           <Divider />
-          <BudgetItem name="Wifeys Allowance" actual={70}/>
+          <BudgetItem name="Wifeys Allowance" />
         </BudgetCategoryContent>
       </BudgetCategory>
     </Grid>

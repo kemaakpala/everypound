@@ -49,13 +49,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const BudgetItem = ({ name, actual }) => {
+const BudgetItem = ({ name }) => {
   const [planned, setPlanned] = useState(parseFloat('0').toFixed(2));
   const [progressVal, setProgressVal] = useState(0);
   const [toggleExpanded, setToggleExpanded] = useState(true);
 
   const classes = useStyles();
-  // const [actualAmt, setActualAmt] = useState(planned);
+  const [actual, setActual] = useState(0);
 
   const handleChange = (e) => { setPlanned(e.target.value) }
   const handleBlur = (e) => {
@@ -64,13 +64,17 @@ const BudgetItem = ({ name, actual }) => {
     setPlanned(parseFloatAmount('0'));
     if (!isNan) {
       setPlanned(val);
-      setProgressVal(pctVal(val, actual));
+      setProgressVal(pct(actual, val));
     }
   }
 
   const handleToggleTransaction = (e) => { setToggleExpanded(!toggleExpanded) }
-
-  const pctVal = (numerator, denominator) => (numerator - denominator) * 100 / (numerator - denominator);
+  const pct100 = (val) => (val > 100) ? 100 : val;
+  const pct = (numerator, denominator) => {
+    let result = numerator/denominator * 100;
+    return pct100(result);
+  };
+  // const normalize = (value, max, min) => (value - min) * 100 / (max - min);
   const toggleExpandedClass = clsx(classes.expandTransactionBtn, toggleExpanded && 'expanded')
 
   return (
