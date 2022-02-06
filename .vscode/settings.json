@@ -1,0 +1,9 @@
+{
+  "eslint.options": {
+    "configFile": ".eslintrc.js"
+  },
+  "jest.jestCommandLine": "npm run test --",
+  "jest.showCoverageOnLoad": true,
+  "jest.shell": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh"
+}
